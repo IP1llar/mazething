@@ -1,0 +1,31 @@
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Maze</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src="./scripts/maze.js" defer></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <button class="new-maze">Generate maze</button>
+      <button class="find-Astar-path">Find A* path</button>
+      <button class="find-dijkstra-path">Find dijkstra path</button>
+      <button class="find-bfs-path">Find BFS path</button>
+      <button class="set-start">Set start</button>
+      <button class="set-end">Set end</button>
+      <button class="zoom-in">Zoom in</button>
+      <button class="zoom-out">Zoom out</button>
+      <button class="createPlayer">Create Player</button>
+    </div>
+    <div class="container" id="container">
+      <div class="maze" id="maze">
+        <!-- <div class="player"></div> -->
+      </div>
+    </div>
+  </body>
+
+</html>

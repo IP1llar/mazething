@@ -1,0 +1,253 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  cursor: grab;
+}
+
+.maze {
+  position: relative;
+  max-width: 100vh;
+  min-width: 0;
+  max-height: min(90vh);
+  display: grid;
+  place-items: start;
+}
+
+.block {
+  width: 10%;
+  position: relative;
+  height: 10%;
+  /* border: 2px solid black; */
+  transition: background-color 1ms;
+}
+
+.block:hover {
+  background-color: grey;
+}
+
+.b::after {
+  content: "";
+  background-image: url(./roads/b.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+.t::after {
+  content: "";
+  background-image: url(./roads/t.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+.l::after {
+  content: "";
+  background-image: url(./roads/l.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+
+.r::after {
+  content: "";
+  background-image: url(./roads/r.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+
+
+.l.t::after {
+  content: "";
+  background-image: url(./roads/lt.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+
+.r.t::after {
+  content: "";
+  background-image: url(./roads/rt.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+
+.b.t::after {
+  content: "";
+  background-image: url(./roads/bt.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+
+.b.l::after {
+  content: "";
+  background-image: url(./roads/bl.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+
+.b.r::after {
+  content: "";
+  background-image: url(./roads/br.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+.l.r::after {
+  content: "";
+  background-image: url(./roads/lr.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+.b.r.t::after {
+  content: "";
+  background-image: url(./roads/brt.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+
+.b.l.t::after {
+  content: "";
+  background-image: url(./roads/blt.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+.l.r.t::after {
+  content: "";
+  background-image: url(./roads/lrt.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+.b.l.r::after {
+  content: "";
+  background-image: url(./roads/blr.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+.b.l.r.t::after {
+  content: "";
+  background-image: url(./roads/blrt.png);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  background-size: contain;
+}
+
+.player {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-image: url('./roads/minion-v1.png');
+  background-size: contain;
+  z-index: 20;
+}
