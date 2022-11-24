@@ -730,3 +730,19 @@ $('.left').on('click', () => {
   console.log(newMaze.players)
   newMaze.movePlayersLeft();
 })
+
+const pressed = {};
+
+document.onkeydown = (ev) => {
+  if (pressed[ev.key] !== true) {
+    pressed[ev.key] = true;
+    if (ev.key === 'w') newMaze.movePlayersUp();
+    else if (ev.key === 'a') newMaze.movePlayersLeft();
+    else if (ev.key === 's') newMaze.movePlayersDown();
+    else if (ev.key === 'd') newMaze.movePlayersRight();
+  }
+}
+
+document.onkeyup = (ev) => {
+  pressed[ev.key] = false;
+}
