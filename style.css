@@ -33,7 +33,7 @@ body {
   position: relative;
   height: 10%;
   /* border: 2px solid black; */
-  transition: background-color 1ms;
+  transition: background-color 1ms, height 0.5s, width 0.5s;
 }
 
 .block:hover {
@@ -247,7 +247,10 @@ body {
   position: absolute;
   height: 50px;
   width: 50px;
+  top: 0px;
+  left: 0px;
   background-image: url('./roads/minion-v1.png');
   background-size: contain;
   z-index: 20;
+  transition: 0.5s;
 }

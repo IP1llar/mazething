@@ -196,11 +196,25 @@ class Player {
   constructor (origin, id) {
     this.id = id;
     this.origin = origin;
+    this.top = 0;
+    this.left = 0;
   }
 
   createPlayerDiv(maze) {
     const newPlayer = $(`<div class="player" id="${this.id}"/>`);
     maze.append(newPlayer);
+  }
+
+  moveDown(distance) {
+    this.top++;
+  }
+
+  reDraw(distance) {
+    console.log(this.top, this.left, this.id, distance)
+    const $player = $(`#${this.id}`);
+    console.log($player.css('top'));
+    $player.css('top', `${this.top*distance}px`)
+    $player.css('left', `${this.left*distance}px`)
   }
 }
 
@@ -248,6 +262,7 @@ class Maze extends Graph {
     $('.block').css('height', `${this.boxSize}px`)
     $('.player').css('width', `${Math.floor(this.boxSize)}px`)
     $('.player').css('height', `${Math.floor(this.boxSize)}px`)
+    this.drawPlayers();
   }
 
   async generateMaze (walls = this.width) {
@@ -580,13 +595,24 @@ class Maze extends Graph {
   }
 
   createPlayer() {
-    const player = new Player('red', String(Math.random()));
+    const player = new Player('red', String(this.players.length)+'player');
     player.createPlayerDiv($('.maze'))
     console.log(this.players)
     this.players.push(player);
   }
 
-  
+  movePlayersDown() {
+    for (let player of this.players) {
+      player.moveDown();
+      player.reDraw(this.boxSize);
+    }
+  }
+
+  drawPlayers() {
+    for (let player of this.players) {
+      player.reDraw(this.boxSize);
+    }
+  }
 
 }
 let newMaze;
@@ -650,6 +676,11 @@ $('.zoom-out').on('click', () => {
 })
 
 $('.createPlayer').on('click', () => {
-  console.log('hello')
   newMaze.createPlayer();
+})
+
+$('.down').on('click', () => {
+  console.log('down');
+  console.log(newMaze.players)
+  newMaze.movePlayersDown();
 })
