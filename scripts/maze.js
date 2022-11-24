@@ -209,6 +209,15 @@ class Player {
   moveDown(distance) {
     this.top++;
   }
+  moveRight(distance) {
+    this.left++;
+  }
+  moveLeft(distance) {
+    this.left--;
+  }
+  moveUp(distance) {
+    this.top--;
+  }
 
   reDraw(distance) {
     console.log(this.top, this.left, this.id, distance)
@@ -610,6 +619,25 @@ class Maze extends Graph {
       player.reDraw(this.boxSize);
     }
   }
+  movePlayersRight() {
+    for (let player of this.players) {
+      player.moveRight();
+      player.reDraw(this.boxSize);
+    }
+  }
+  movePlayersUp() {
+    for (let player of this.players) {
+      player.moveUp();
+      player.reDraw(this.boxSize);
+    }
+  }
+  movePlayersLeft() {
+    console.log('paste')
+    for (let player of this.players) {
+      player.moveLeft();
+      player.reDraw(this.boxSize);
+    }
+  }
 
   drawPlayers() {
     for (let player of this.players) {
@@ -686,4 +714,19 @@ $('.down').on('click', () => {
   console.log('down');
   console.log(newMaze.players)
   newMaze.movePlayersDown();
+})
+$('.right').on('click', () => {
+  console.log('right');
+  console.log(newMaze.players)
+  newMaze.movePlayersRight();
+})
+$('.up').on('click', () => {
+  console.log('up');
+  console.log(newMaze.players)
+  newMaze.movePlayersUp();
+})
+$('.left').on('click', () => {
+  console.log('left');
+  console.log(newMaze.players)
+  newMaze.movePlayersLeft();
 })
