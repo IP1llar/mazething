@@ -200,6 +200,7 @@ class Player {
 
   createPlayerDiv(maze) {
     const newPlayer = $(`<div class="player" id="${this.id}"/>`);
+   
     maze.append(newPlayer);
   }
 }
@@ -582,6 +583,8 @@ class Maze extends Graph {
   createPlayer() {
     const player = new Player('red', String(Math.random()));
     player.createPlayerDiv($('.maze'))
+    $('.player').css('width', `${Math.floor(this.boxSize)}px`)
+    $('.player').css('height', `${Math.floor(this.boxSize)}px`)
     console.log(this.players)
     this.players.push(player);
   }
